@@ -2,6 +2,12 @@
 
 #include "debug.h"
 
+static int simpleInstruction(const char *name, int offset)
+{
+    printf("%s\n", name);
+    return offset + 1;
+}
+
 void disassembleChunk(Chunk *chunk, const char *name)
 {
     printf("== %s ==\n", name);
@@ -14,7 +20,7 @@ void disassembleChunk(Chunk *chunk, const char *name)
 
 int disassembleInstruction(Chunk *chunk, int offset)
 {
-    print("%04d", offset);
+    printf("%04d ", offset);
 
     u_int8_t instruction = chunk->code[offset];
 
@@ -27,10 +33,4 @@ int disassembleInstruction(Chunk *chunk, int offset)
         printf("Unkown opcode %d\n", instruction);
         return offset + 1;
     }
-}
-
-static int simpleInstruction(const char *name, int offset)
-{
-    printf("%s\n", name);
-    return offset + 1;
 }
