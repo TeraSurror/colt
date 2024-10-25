@@ -6,15 +6,13 @@
 #include "value.h"
 
 // Operation code corresponding to various operations
-typedef enum
-{
+typedef enum {
   OP_CONSTANT, // Load constant for use
   OP_RETURN,   // Return from the current function
 } OpCode;
 
 // Defines series of instructions
-typedef struct
-{
+typedef struct {
   int count;
   int capacity;
   uint8_t *code;
